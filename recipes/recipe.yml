@@ -3,10 +3,10 @@
 # image will be published to ghcr.io/<user>/<name>
 name: TacOS
 # description will be included in the image's metadata
-description: This is my personal OS image.
+description: A tastefully Tactical OS, seasoned with simplicity, and just the right toppings for the modern operator.Immutable and always ready to deploy by design, ensuring your focus remains on the mission, not the OS from byte one.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
+base-image: ghcr.io/ublue-os/silverblue-nvidia:latest
 image-version: 41 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -23,6 +23,8 @@ modules:
     install:
       - micro
       - starship
+      - distrobox
+      - waydroid
     remove:
       # example: removing firefox (in favor of the flatpak)
       # "firefox" is the main package, "firefox-langpacks" is a dependency
@@ -41,4 +43,3 @@ modules:
     user: {} # Also add Flathub user repo, but no user packages
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
-
